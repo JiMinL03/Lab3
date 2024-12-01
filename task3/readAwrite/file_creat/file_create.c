@@ -6,7 +6,7 @@
 #include <errno.h>
 #include <stdlib.h>
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[]){ //creat 안 쓰고 open 파일이 없을 때 빈 파일 생성하는 기능 쓴듯.
     int fd;
     char *buf;
     ssize_t cnt;

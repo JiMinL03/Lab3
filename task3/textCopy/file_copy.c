@@ -23,10 +23,10 @@ int main(int argc, char *argv[]){
         exit(1);
     }
 
-    while(!feof(src)){
-        ch = (char) fgetc(src);
-        if(ch != EOF){
-            fputc((int)ch, dst);
+    while(!feof(src)){ //feof는 파일의 끝을 확인하는 함수
+        ch = (char) fgetc(src); //파일 src에서 한 문자를 읽어옴
+        if(ch != EOF){ //만약 ch가 파일의 끝이 아니라면
+            fputc((int)ch, dst); //ch에 저장된 문자를 dst 파일에 쓴다.
         }
         count++;
     }

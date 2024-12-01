@@ -6,7 +6,7 @@
 #include <errno.h>
 #include <stdlib.h>
 
-#define MAX_READ 10
+#define MAX_READ 2
 
 int main(int argc, char *argv[]) {
     int src_fd;
@@ -31,8 +31,10 @@ int main(int argc, char *argv[]) {
         exit(1);
     }
 
-    while ((rcnt = read(src_fd, buf, MAX_READ)) > 0) {
-        ssize_t wc = write(dst_fd, buf, rcnt);
+    while ((rcnt = read(src_fd, buf, MAX_READ)) > 0) { 
+        //파일을 읽음 1바이트씩 읽어서 쓴다. (while문이기 떄문에 전체 파일이 복사되는 것이다.)
+        //read로부터 0이 반환되면 파일의 끝을 의미함. 따라서 0이 될 때까지 반복문을 돌려 전체 파일을 복사함.
+        ssize_t wc = write(dst_fd, buf, rcnt); //dst_fd에 rcnt를 입력함
         if (wc == -1) {
             perror("write");
             exit(1);

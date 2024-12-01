@@ -4,7 +4,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <errno.h>
+#include <errno.h> //오류처리
 
 int main(int argc, char *argv[]){
     int fd;
@@ -25,6 +25,8 @@ int main(int argc, char *argv[]){
 
     //파일 여는 데 성공했다면 ..
     cnt = write(fd, buf, strlen(buf));
+    //fd : 파일 기술자
+    //buf : 자료가 복사되어질 문자 배열의 포인터
     printf("write count = %d\n", cnt);
     
 

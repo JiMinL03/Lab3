@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 #define BUFSIZE 256
-
+//표준 입출력 예제 프로그램
 int main(){
     int n;
     char buf[BUFSIZE];

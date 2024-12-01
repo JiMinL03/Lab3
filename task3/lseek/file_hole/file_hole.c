@@ -10,7 +10,7 @@ const char *endstring = ".";
 
 int main(int argc, char *argv[]){
     int fd;
-    off_t hole_size;
+    off_t hole_size; //파일 내에서 이동할 위치, 0은 파일의 처음
     off_t size;
 
     if(argc < 3){
@@ -27,7 +27,7 @@ int main(int argc, char *argv[]){
     size = lseek(fd, 0, SEEK_END);
     printf("Before : %s's size = %ld\n", argv[1], size);
 
-    lseek(fd, hole_size, SEEK_END);
+    lseek(fd, hole_size, SEEK_SET); //지정한 위치에 endstring을 쓴다. (문자 덮어씌움)
     write(fd, endstring, 1);
 
     size = lseek(fd, 0, SEEK_END);

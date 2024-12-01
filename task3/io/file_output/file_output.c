@@ -18,7 +18,9 @@ int main(int argc, char *argv[]){
         perror("open");
         exit(1);
     }
-    
+
+    // dup2: 파일 디스크립터를 복제하는 시스템 호출 함수
+    //표준 입력, 표준 출력 또는 사용자 지정 파일 디스크립터를 리디렉션하거나 변경할 때 사용
     if(dup2(fd,1) == -1){
         perror("dup2");
         exit(1);
@@ -29,7 +31,7 @@ int main(int argc, char *argv[]){
         exit(1);
     }
     //while(1,buf,strlen(buf));
-    // 파일에 버퍼 내용을 쓰는 부분
+    //터미널에서 입력한 파일에 버퍼 내용을 쓰는 부분
     if(write(1, buf, strlen(buf)) == -1){
         perror("write");
         exit(1);
